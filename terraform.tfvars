@@ -1,2 +1,6 @@
-AWS_ACCESS_KEY = AKIA2EVF75KMR5VWHUTM
-AWS_SECRET_KEY = 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
+access_key = AKIA2EVF75KMR5VWHUTM
+secret_key = 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
+access_ip  = "0.0.0.0/0"
+db_name    = "threetierdb"
+dbuser     = "admin"
+dbpassword = "admin"
