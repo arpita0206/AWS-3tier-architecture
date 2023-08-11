@@ -5,9 +5,11 @@ variable "AWS_REGION" {
 }
 
 variable "AWS_ACCESS_KEY" {
+default = "ASIAW4DF572NOCQB52EQ"
 }
 
 variable "AWS_SECRET_KEY" {
+default = "FqP4F2FnotQxsdhxS6J65xZI8at+Bz14ydxrj8LF"
 }
 
 variable "access_ip" {
