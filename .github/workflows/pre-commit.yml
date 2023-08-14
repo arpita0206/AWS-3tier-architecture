@@ -1,0 +1,36 @@
+name: Pre-Commit Hook with TruffleHog
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your main branch name
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest  # You can choose a different runner if needed
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # Use the desired Python version
+
+      - name: Install TruffleHog
+        run: |
+          pip install trufflehog
+
+      - name: Run TruffleHog
+        run: |
+          trufflehog --entropy=False --regex --rules ./trufflehog_custom_rules.json
+
+      - name: Check TruffleHog result and fail if secrets found
+        run: |
+          if [ $? -eq 0 ]; then
+              echo "Pre-commit hook passed. No sensitive data found."
+          else
+              echo "Pre-commit hook failed. Sensitive data detected."
+              exit 1
+          fi
