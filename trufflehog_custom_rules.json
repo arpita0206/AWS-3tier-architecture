@@ -1,7 +1,7 @@
 {
-    "RSA private key": "-----BEGIN RSA PRIVATE KEY-----",
+    "RSA private key": "(?i)-----BEGIN PRIVATE KEY-----([A-Za-z0-9+/\\n=]{64,})-----END PRIVATE KEY-----",
     "Amazon AWS Access Key ID": "AKIA[0-9A-Z]{16}",
-    "AWS API Key": "AKIA[0-9A-Z]{16}",
-    "Generic API Key": "[a|A][p|P][i|I][_]?[k|K][e|E][y|Y].*['|\"][0-9a-zA-Z]{32,45}['|\"]",
-    "Generic Secret": "[s|S][e|E][c|C][r|R][e|E][t|T].*['|\"][0-9a-zA-Z]{32,45}['|\"]"
+    "Amazon AWS Secret Access Key ID": "aws_secret_access_key[\"']?\\s*[:=]\\s*[\"']?[A-Za-z0-9/+=]{40}[\"']?",
+    "AWS API Key": "AKIA[0-9A-Z]{16}",     
+
 }
