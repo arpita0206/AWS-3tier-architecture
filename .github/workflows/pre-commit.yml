@@ -26,7 +26,7 @@ jobs:
         run: |
           trufflehog --entropy=False --regex --rules ./trufflehog_custom_rules.json https://github.com/arpita0206/AWS-3tier-architecture.git
 
-      - name: Check TruffleHog result and fail if secrets found
+      - name: Check TruffleHog result and fail if secrets are found
         run: |
           if [ $? -eq 0 ]; then
               echo "Pre-commit hook passed. No sensitive data found."
