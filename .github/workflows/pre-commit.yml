@@ -24,7 +24,7 @@ jobs:
 
       - name: Run TruffleHog
         run: |
-          trufflehog --entropy=False --regex --rules ./trufflehog_custom_rules.json
+          trufflehog --entropy=False --regex --rules ./trufflehog_custom_rules.json https://github.com/arpita0206/AWS-3tier-architecture.git
 
       - name: Check TruffleHog result and fail if secrets found
         run: |
