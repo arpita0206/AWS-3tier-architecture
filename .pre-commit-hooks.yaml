@@ -1,20 +1,5 @@
-- id: trufflehog
-  name: TruffleHog
-  description: Detect secrets in your data with TruffleHog.
-  entry: trufflehog git file://. --since-commit HEAD --only-verified --fail
-  language: golang
-  pass_filenames: false
-
--   id: detect-aws-credentials
-    name: detect aws credentials
-    description: detects *your* aws credentials from the aws cli credentials file.
-    entry: detect-aws-credentials
-    language: python
-    types: [text]
-
--   id: detect-private-key
-    name: detect private key
-    description: detects the presence of private keys.
-    entry: detect-private-key
-    language: python
-    types: [text]
+-   id: git-secrets
+    name: Git Secrets
+    description: git-secrets scans commits, commit messages, and --no-ff merges to prevent adding secrets into your git repositories.
+    entry: 'git-secrets --pre_commit_hook'
+    language: script
