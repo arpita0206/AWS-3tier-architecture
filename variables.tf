@@ -5,7 +5,7 @@ variable "AWS_REGION" {
 }
 
 variable "AWS_ACCESS_KEY" {
-default = "ASIAW4DF572NOCQB52EQ"
+default = "AKIAW4DF572NOCQB52EQ"
 }
 
 variable "AWS_SECRET_KEY" {
