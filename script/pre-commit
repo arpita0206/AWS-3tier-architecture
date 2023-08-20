@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Path to the Trufflehog script
+TRUFFLEHOG_PATH="./tools/trufflehog.py"
+
+# Function to download Trufflehog script if not already present
+download_trufflehog() {
+    if [ ! -f "$TRUFFLEHOG_PATH" ]; then
+        echo "Trufflehog script not found. Downloading..."
+        mkdir -p "$(dirname $TRUFFLEHOG_PATH)"
+        curl -o "$TRUFFLEHOG_PATH" https://raw.githubusercontent.com/dxa4481/truffleHog/master/truffleHog/truffleHog.py
+        chmod +x "$TRUFFLEHOG_PATH"
+        echo "Trufflehog script downloaded."
+    fi
+}
+
+# Main function to run Trufflehog and check for sensitive information
+run_trufflehog() {
+    download_trufflehog
+    echo "Running Trufflehog to scan for sensitive information..."
+    python "$TRUFFLEHOG_PATH" .
+    echo "Trufflehog scan complete."
+}
+
+# Call the main function to run Trufflehog
+run_trufflehog
+
+# Add other pre-commit actions here (e.g., linting, tests)
+
+exit 0
