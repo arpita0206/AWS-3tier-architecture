@@ -1,6 +1,17 @@
-repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+-   repo: local
     hooks:
-    -   id: detect-aws-credentials
-    -   id: detect-private-key
+    -   id: trufflehog-check
+        name: trufflehog-check
+        entry: ./scripts/pre-commit
+        language: script
+
+
+
+
+
+# repos:
+# -   repo: https://github.com/pre-commit/pre-commit-hooks
+#     rev: v4.4.0
+#     hooks:
+#     -   id: detect-aws-credentials
+#     -   id: detect-private-key
